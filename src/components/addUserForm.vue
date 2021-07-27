@@ -10,17 +10,22 @@
 
       <el-form label-position="left" label-width="100px">
         <el-form-item label="Имя">
-          <el-input :class="{'error': error.name}" v-model="newUser.name" />
+          <el-input
+            placeholder="Введите имя" :class="{'error': error.name}" v-model="newUser.name"
+          />
         </el-form-item>
 
         <el-form-item label="Телефон">
-          <el-input
-            :class="{'error': error.phone}" v-mask="'+7 (###) ###-##-##'" v-model="newUser.phone"
+          <el-input placeholder="+7 (###) ###-##-##" :class="{'error': error.phone}"
+                    v-mask="'+7 (###) ###-##-##'" v-model="newUser.phone"
           />
         </el-form-item>
 
         <el-form-item label="Начальник">
-          <el-select style="width: 100%" v-model="newUser.chiefId" placeholder="">
+          <el-select
+            :disabled="rosterArr.length === 0" style="width: 100%" v-model="newUser.chiefId"
+            placeholder="Выбор начальника"
+          >
             <el-option
               v-for="user in rosterArr"
               :key="user.id"
@@ -90,8 +95,7 @@ export default {
       this.error.phone = !/^\+7\s\(\d{3}\)\s\d{3}(-\d{2}){2}$/.test(this.newUser.phone);
       this.error.name = this.newUser.name.length < 1;
 
-      const allValid = Object.values(this.error).every((value) => !value);
-      if (allValid) {
+      if (Object.values(this.error).every((value) => !value)) {
         this.saveUser();
       }
     },
