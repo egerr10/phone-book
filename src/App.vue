@@ -24,7 +24,6 @@ export default {
   name: 'App',
   data() {
     return {
-      user: null,
       lastUserId: 1,
       usersArr: [],
       rosterArr: [],

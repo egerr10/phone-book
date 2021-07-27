@@ -1,5 +1,5 @@
 <template>
-  <div class="table-container">
+  <div class="table-body">
     <div class="table-column">
       <div @click="$emit('sort')" class="table-td cp">Имя <i class="el-icon-sort"/></div>
       <div :style="margin(user.nesting)"
@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .table-container {
+  .table-body {
     display: flex;
   }
   .table-column {
