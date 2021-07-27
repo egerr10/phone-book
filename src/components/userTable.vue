@@ -20,7 +20,7 @@
 <script>
 export default {
   name: 'userTable',
-  props: ['rosterArr', 'sortKey'],
+  props: ['rosterArr'],
   methods: {
     margin(n) {
       return n > 0 ? { 'margin-left': `${n * 10}px` } : 0;

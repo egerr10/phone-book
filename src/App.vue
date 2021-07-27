@@ -10,7 +10,7 @@
     </div>
 
     <user-table
-      v-if="rosterArr.length > 0" @sort="sort" :rosterArr="rosterArr" :sortKey="sortKey"
+      v-if="rosterArr.length > 0" @sort="sort" :rosterArr="rosterArr"
     />
   </div>
 </template>
