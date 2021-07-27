@@ -82,14 +82,14 @@ export default {
     };
   },
   created() {
-    this.newUser = new User(this.lastUserId);
+    this.clearUser();
   },
   methods: {
-    setNesting(user) {
-      this.newUser.nesting = user.nesting + 1;
-    },
     clearUser() {
       this.newUser = new User(this.lastUserId);
+    },
+    setNesting(user) {
+      this.newUser.nesting = user.nesting + 1;
     },
     validate() {
       this.error.phone = !/^\+7\s\(\d{3}\)\s\d{3}(-\d{2}){2}$/.test(this.newUser.phone);
